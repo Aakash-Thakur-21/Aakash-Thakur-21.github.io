@@ -8,11 +8,16 @@ const Header = () => {
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
-  const handleDownloadCV = () => {
+  const handleDownloadCV = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default navigation behavior
+    
     // Create a dummy CV file link
     const link = document.createElement('a');
     link.href = 'https://www.africau.edu/images/default/sample.pdf'; // Sample PDF link
     link.download = 'developer_cv.pdf';
+    link.target = '_blank'; // Open in new tab if download doesn't start automatically
+    link.rel = 'noopener noreferrer';
+    
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
