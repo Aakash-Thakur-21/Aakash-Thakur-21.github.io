@@ -4,7 +4,7 @@ import { ArrowRight, Briefcase, Code, Laptop, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="home" className="bg-gradient-to-b from-blue-50 to-white py-20 px-4 lg:min-h-[85vh] flex items-center">
+    <section id="home" className="bg-gradient-to-b from-blue-50 to-white py-12 px-4 lg:min-h-[85vh] flex items-center">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
