@@ -18,6 +18,15 @@ const Header = () => {
     document.body.removeChild(link);
   };
   
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+      if (isMenuOpen) setIsMenuOpen(false);
+    }
+  };
+  
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
       <div className="container mx-auto flex justify-between items-center h-16 px-4">
@@ -28,11 +37,41 @@ const Header = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <a href="#home" className="font-medium hover:text-linkedin transition-colors">Home</a>
-          <a href="#skills" className="font-medium hover:text-linkedin transition-colors">Skills</a>
-          <a href="#projects" className="font-medium hover:text-linkedin transition-colors">Projects</a>
-          <a href="#experience" className="font-medium hover:text-linkedin transition-colors">Experience</a>
-          <a href="#contact" className="font-medium hover:text-linkedin transition-colors">Contact</a>
+          <a 
+            href="#home" 
+            className="font-medium hover:text-linkedin transition-colors"
+            onClick={(e) => handleSmoothScroll(e, 'home')}
+          >
+            Home
+          </a>
+          <a 
+            href="#skills" 
+            className="font-medium hover:text-linkedin transition-colors"
+            onClick={(e) => handleSmoothScroll(e, 'skills')}
+          >
+            Skills
+          </a>
+          <a 
+            href="#projects" 
+            className="font-medium hover:text-linkedin transition-colors"
+            onClick={(e) => handleSmoothScroll(e, 'projects')}
+          >
+            Projects
+          </a>
+          <a 
+            href="#experience" 
+            className="font-medium hover:text-linkedin transition-colors"
+            onClick={(e) => handleSmoothScroll(e, 'experience')}
+          >
+            Experience
+          </a>
+          <a 
+            href="#contact" 
+            className="font-medium hover:text-linkedin transition-colors"
+            onClick={(e) => handleSmoothScroll(e, 'contact')}
+          >
+            Contact
+          </a>
           <Button 
             className="bg-linkedin hover:bg-linkedin-dark ml-2"
             onClick={handleDownloadCV}
@@ -59,35 +98,35 @@ const Header = () => {
             <a 
               href="#home" 
               className="font-medium py-2 hover:text-linkedin transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, 'home')}
             >
               Home
             </a>
             <a 
               href="#skills" 
               className="font-medium py-2 hover:text-linkedin transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, 'skills')}
             >
               Skills
             </a>
             <a 
               href="#projects" 
               className="font-medium py-2 hover:text-linkedin transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, 'projects')}
             >
               Projects
             </a>
             <a 
               href="#experience" 
               className="font-medium py-2 hover:text-linkedin transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, 'experience')}
             >
               Experience
             </a>
             <a 
               href="#contact" 
               className="font-medium py-2 hover:text-linkedin transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
             >
               Contact
             </a>
